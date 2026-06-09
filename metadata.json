@@ -1,0 +1,6 @@
+{
+  "name": "AI Music Match & Playlist Generator",
+  "description": "음악 하나로 비슷한 취향의 곡을 찾고, 좋아하는 음악 목록을 AI로 비교 분석하여 맞춤형 플레이리스트를 만들어주는 서비스입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
