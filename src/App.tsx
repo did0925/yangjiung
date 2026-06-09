@@ -287,8 +287,16 @@ export default function App() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#050505] text-[#e0e0e0] font-sans flex flex-col justify-between selection:bg-white selection:text-black">
+    <div className="w-full min-h-screen bg-[#07050d] text-[#e0e0e0] font-sans flex flex-col justify-between selection:bg-purple-500 selection:text-white relative overflow-hidden">
       
+      {/* Dynamic Floating Colorful Neon Blobs in the Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-indigo-600/20 blur-[130px] animate-pulse duration-[8000ms]"></div>
+        <div className="absolute top-1/4 -right-20 w-[450px] h-[450px] rounded-full bg-rose-600/15 blur-[150px] animate-bounce duration-[14000ms]"></div>
+        <div className="absolute bottom-10 left-1/3 w-[500px] h-[500px] rounded-full bg-purple-600/15 blur-[160px] animate-pulse duration-[10000ms]"></div>
+        <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-emerald-600/15 blur-[120px] duration-[12000ms]"></div>
+      </div>
+
       {/* Hidden audio tag for playback */}
       {currentTrack && (
         <audio
@@ -299,7 +307,7 @@ export default function App() {
       )}
 
       {/* Top Navigation Bar */}
-      <nav className="h-16 border-b border-white/10 flex items-center justify-between px-6 sm:px-10 bg-[#050505]/80 backdrop-blur-md sticky top-0 z-30">
+      <nav className="h-16 border-b border-white/10 flex items-center justify-between px-6 sm:px-10 bg-[#07050d]/70 backdrop-blur-md sticky top-0 z-30">
         <div className="flex items-center gap-8">
           <div className="text-xl font-bold tracking-tighter flex items-center gap-3">
             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center relative shadow-lg shadow-white/10">
@@ -331,13 +339,13 @@ export default function App() {
       </nav>
 
       {/* Core Body Section with flex layout */}
-      <div className="flex flex-1 flex-col lg:flex-row overflow-hidden">
+      <div className="flex flex-1 flex-col lg:flex-row overflow-hidden relative z-10">
         
         {/* Left Interactive Sidebar panel */}
-        <aside className="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-white/5 p-6 bg-black/20 flex flex-col gap-6">
+        <aside className="w-full lg:w-80 border-b lg:border-b-0 lg:border-r border-white/5 p-6 bg-purple-950/10 backdrop-blur-md flex flex-col gap-6">
           
           {/* Realtime Music Mood / Insights Widget */}
-          <section className="bg-gradient-to-r from-white/[0.04] to-white/[0.01] border border-white/10 p-5 rounded-2xl">
+          <section className="bg-gradient-to-r from-purple-500/10 to-indigo-500/5 border border-purple-500/20 p-5 rounded-2xl relative overflow-hidden backdrop-blur-xl">
             <h3 className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-3 font-semibold flex items-center justify-between">
               <span>LIVE AI INSIGHT </span>
               <span className="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-ping"></span>
@@ -407,7 +415,7 @@ export default function App() {
         </aside>
 
         {/* Right Active Workspace Panel */}
-        <main className="flex-1 flex flex-col bg-[#080808] overflow-y-auto px-4 sm:px-10 py-8 space-y-10" id="discover">
+        <main className="flex-1 flex flex-col bg-[#07050d]/40 backdrop-blur-3xl overflow-y-auto px-4 sm:px-10 py-8 space-y-10" id="discover">
           
           {/* Header & Hero Search Panel */}
           <header className="space-y-6">
@@ -488,8 +496,8 @@ export default function App() {
                   return (
                     <div 
                       key={track.id} 
-                      className={`group p-4 bg-[#0a0a0a]/80 hover:bg-zinc-900/60 border rounded-2xl flex items-center justify-between gap-4 transition-all duration-300 ${
-                        isCurrent ? "border-zinc-400 bg-zinc-900/40" : "border-white/5"
+                      className={`group p-4 bg-purple-950/15 hover:bg-purple-900/25 border rounded-2xl flex items-center justify-between gap-4 transition-all duration-300 ${
+                        isCurrent ? "border-purple-400 bg-purple-950/40 shadow-lg shadow-purple-500/10" : "border-white/5"
                       }`}
                     >
                       <div className="flex items-center gap-3.5 overflow-hidden flex-1">
@@ -610,7 +618,7 @@ export default function App() {
                     return (
                       <div 
                         key={track.id} 
-                        className="group bg-[#060606]/95 border border-white/5 hover:border-white/20 p-4 rounded-2xl flex flex-col justify-between gap-3 transition-all duration-300 relative"
+                        className="group bg-indigo-950/20 border border-white/10 hover:border-indigo-500/30 p-4 rounded-2xl flex flex-col justify-between gap-3 transition-all duration-300 relative backdrop-blur-sm"
                       >
                         <div className="flex items-start gap-3">
                           {/* Rich artwork overlay */}
@@ -714,7 +722,7 @@ export default function App() {
                     return (
                       <div 
                         key={track.id} 
-                        className="p-3 bg-white/[0.02] border border-white/5 rounded-xl hover:border-white/10 flex items-center justify-between gap-3 group transition-all"
+                        className="p-3 bg-rose-950/10 border border-rose-500/15 rounded-xl hover:border-rose-500/40 flex items-center justify-between gap-3 group transition-all backdrop-blur-sm"
                       >
                         <div className="flex items-center gap-3 overflow-hidden flex-1">
                           <span className="text-xs font-mono text-zinc-600 w-5 shrink-0">
@@ -918,7 +926,7 @@ export default function App() {
       </div>
 
       {/* Interactive sticky bottom music player bar */}
-      <footer className="bg-black/95 border-t border-white/10 p-4 sm:p-6 sticky bottom-0 z-40 backdrop-blur-md">
+      <footer className="bg-[#07050d]/90 border-t border-white/10 p-4 sm:p-6 sticky bottom-0 z-40 backdrop-blur-md">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-4 sm:gap-8 justify-between">
           
           {/* Cover and Name details */}
